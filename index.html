@@ -1,1 +1,50 @@
-Hello, world!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <h1 class="title">Добро пожаловать!</h1>
+    <h2 class="subtitle">Этот сайт поможет Вам решить квадратное уравнение.</h2>
+    <div id="inputCoeff">
+        <p class="text">Введите a, b и c через запятую:</p>
+        <input id="input" type="text" title="">
+        <button id="buttonSolve" onclick="buttonSolveOnClick()">
+            <label class="text">Решить</label>
+        </button>
+    </div>
+    <p class="subtitle">Ответ:</p>
+    <div id="output">
+    </div>
+<script>
+    function buttonSolveOnClick() {
+        let inp = document.getElementById("input").value;
+        let out = document.getElementById("output");
+        if (inp.trim() === '') {
+            out.innerHTML = ['<p class="text">', 'Введите значения!', '</p>'].join('')
+        }
+        else {
+            let coeef = inp.split(",");
+            if (coeef.length === 3) {
+                let a = Number(coeef[0]);
+                let b = Number(coeef[1]);
+                let c = Number(coeef[2]);
+                let d = b * b - 4 * a * c
+                if (d < 0) {
+                    out.innerHTML = ['<p class="text">', 'Иррациональные корни!', '</p>'].join('')
+                } else {
+                    let x1 = (-b + Math.sqrt(d)) / 2 * a;
+                    let x2 = (-b - Math.sqrt(d)) / 2 * a;
+                    out.innerHTML = ['<p class="text">', 'x1 = ', x1.toFixed(2), '<br>', 'x2 = ', x2.toFixed(2), '</p>'].join('')
+                }
+            }
+            else {
+                out.innerHTML = ['<p class="text">', 'Введите все значения!', '</p>'].join('')
+            }
+        }
+    }
+</script>
+</body>
+</html>

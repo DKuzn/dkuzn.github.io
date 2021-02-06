@@ -1,0 +1,31 @@
+body {
+    position: relative;
+    background: #dcdcdc;
+    opacity: 1;
+}
+
+#inputCoeff {
+    text-align: center;
+}
+
+#buttonSolve {
+    height: 32px;
+}
+
+#output {
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+    font: 40px/40px Montserrat SemiBold;
+}
+
+.subtitle {
+    text-align: center;
+    font: 30px/40px Montserrat SemiBold;
+}
+
+.text {
+    font: 20px/20px Montserrat;
+}
